@@ -1,0 +1,143 @@
+﻿<html>
+  <head>
+    <title>Kortforsyningsplugin til QGIS 3</title>
+	<meta charset="UTF-8">
+  </head<
+  <body>
+  <p>
+   <img src="SDFE.png" alt="Styrelsen for Dataforsyning og Effektivisering">
+  </p>  
+  <h1 id="da">Kortforsyningspluginet til QGIS 3</h1>
+  <p><i>
+   Want to read the English version? Then, click <a href="#en">here.</a></i></p>
+  <p>På denne side kan du læse om:</p>
+  <ul style="list-style-type:disc">
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#brugeroprettelse">Brugeroprettelse</a></li>
+    <li><a href="#tilfoejlag">Tilføjelse af lag fra Kortforsyningsmenuen</a></li>
+    <li><a href="#tilfoejegnelag">Tilføjelse af egne lag til Kortforsyningsmenuen</a></li>
+    <li><a href="#driftsstatus">Kortforsyningens driftsstatus</a></li>
+  </ul>
+  <H2 id="installation">Installation</H2>
+  <p>
+   Kortforsyningspluginet hentes fra QGIS' officielle Plugin Repository. Start QGIS, og søg efter 'Kortforsyningsplugin' i Plugin Repository.</p>
+  <H2 id="brugeroprettelse">Brugeroprettelse</H2>
+  <p>
+   Det er nødvendigt at have en bruger til Kortforsyningen. Hvis du ikke allerede er registeret som bruger, kan du oprette en bruger <a href="http://download.kortforsyningen.dk//content/opret-mig-som-bruger">her</a> - det er gratis.</p>
+  <p> 
+   	Indtast dit brugernavn og kodeord i QGIS' indstillingsdialog (nyt i QGIS3!). Klik dernæst på 'OK':</p>
+  <p>
+   <img src="KF1-dansk.png" alt="Indstillingsdialogen" style="width:900px">
+  </p>
+  <H2 id="tilfoejlag">Tilføjelse af lag fra Kortforsyningsmenuen</H2>
+  <p>
+  	Når pluginet er installeret tilføjes menuen, Kortforsyningen, automatisk til QGIS. Denne menu indeholder webservices fra Kortforsyningen. Disse webservices er kategoriseret i temaer.</p>
+  <p>
+  	Et lag fra Kortforsyningsmenuen tilføjes til lagpanelet ved at klikke på det ønskede lag i menuen:</p>
+  <p>
+  	<img src="KF2-dansk.png" alt="Kortforsyningsmenuen" style="width:900px"></p>
+  <p><i>
+  	OBS. Pluginet kalder services fra internettet, derfor er det nødvendigt at have internetadgang for at temaerne og lagene vises.</i></p>
+  <p><i>
+  	OBS. Har du ikke adgang til lagene, kan dette skyldes konflikt med din web-sikkerhedsindstilling, der ikke tillader at pluginet henter en qlr-fil fra Kortforsyningen. Dette løses ved at url'en til qlr-filen (http://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/kf/kortforsyning_data.qlr) tilføjes som tilladt ekstern opkobling.</i></p>
+  <p><i>
+  	OBS. Temaerne, der vises, er bestemt af hvilke rettigheder din kortforsyningsbruger har. Hvis din bruger har adgang til yderligere tjenester udstillet gennem Kortforsyningspluginet, vil disse automatisk være tilgængelige i menuen.</i></p>
+  <p>
+  	Lagene fra Kortforsyningsmenuen er desuden søgbare fra søgefeltet i nederste venstre hjørne (ny funktionalitet i QGIS 3). Kortforsyningslag kan desuden tilføjes fra dette søgefelt.</p>
+  <p>	
+  	<img src="KF3-dansk.png" alt="Lagene fra Kortforsyningsmenuen er søgbare i det nye søgefelt i QGIS 3" style="width:900px"></p>
+  <H2 id="tilfoejegnelag">Tilføjelse af egne lag til Kortforsyningsmenuen</H2>
+  <p>
+  	Det er muligt at tilføje egne temaer og lag til Kortforsyningsmenuen. Dette kan fx være webservices fra andre udbydere (fx Plansystem.dk) eller egne lag (fx tabeller i en database eller lag gemt på et drev. Lagene, der skal tilføjes, skal være gemt som en qlr-fil.</p>
+  <p>
+    Her ses et eksempel på, hvordan en qlr-fil kan se ud, samt hvordan Kortforsyningsmenuen ser ud når denne qlr-fil er tilføjet pluginet. Qlr-filen består af grupper, hvor gruppenavne bestemmer temanavne i Kortforsyningsmenuen. Lagene i grupperne bestemmer, hvilke lag, der findes under temaerne i Kortforsyningsmenuen:</p>
+  <p>
+    <img src="KF4-dansk.png" alt="Tilføjelse af lag til Kortforsyningsmenuen med egen qlr-fil" style="width:900px"></p>
+  <H3>Sådan oprettes en qlr-fil:</H3>
+  <ol>
+    <li>Sørg for, at QGIS-projektet er sat til at gemme absolutte stier:</p>
+    	<p><img src="KF5-dansk.png" alt="Absolutte stier" style="width:860px"></p></li>
+    <li>Opret en gruppe i lagpanelet:</p>
+        <p><img src="KF6-dansk.png" alt="Oprettelse af gruppe" style="width:860px"></p></li>
+    <li>I denne gruppe tilføjes en eller flere undergrupper. Giv undergrupperne meningsfulde navne, da disse navne bestemmer temanavnene i Kortforsyningsmenuen. I eksemplet er der tre undergrupper, hhv. ’PlansystemDK – lokalplaner’, ’PlansystemDK – Natur og Kulturbeskyttelser’ og ’Miljøportalen’.</li>
+    <li>Til hver undergruppe tilføjes lag, der skal vises i dette tema. Der må ikke være flere undergrupper i undergruppen. I eksemplet er der fx tilføjet 8 lag til undergruppen/temaet ’PlansystemDK – lokalplaner’.</li>
+    <li>Lav evt. ændringer i lagenes styling, så disse lag har den styling de skal have, når de tilføjes fra Kortforsyningsmenuen.</li>
+    <li>Når du er tilfreds med grupperne og deres indhold, højreklik på overgruppen og vælg ’Gem som lagdefinitionsfil’ og gem qlr-filen:</p>
+        <p><img src="KF7-dansk.png" alt="Gem qlr-fil" style="width:860px"></p></li>
+    <li>Tilføj qlr-filen til Kortforsyningspluginet ved at sætte hak ved ’Udvid Kortforsyningsplugin med qlr-fil’. Klik på ’Åben qlr-fil’, og vælg den oprettede qlr-fil. Klik på ’OK’:</p>
+        <p><img src="KF8-dansk.png" alt="Tilføj qlrfil til Kortforsyningspluginet" style="width:860px"></p></li>
+    </ol>
+  <p>
+  	Bemærk, at en qlr-fil, som peger på lokale data, kun kan vises lokalt. Skal den deles med andre er det vigtigt, at data ligger på et fællesdrev.</p>
+  <H2>Driftsstatus</H2>	
+  <p>
+  	Pluginet bruger services fra Kortforsyningen. Se driftsstatus <a href='https://www.site24x7.com/sv.do?id=I0s1DBEcJmIQQ4zzx%2FsZd8HMN7GkuJ926JxdfdUY3JWh%2FR1xZMoA295dRuHP2wNqvWBeo9R4VTt2%0AlZX81BIklHoiIFDuVU4z"'>her </a></p>
+
+  <h1 id="en">The Kortforsyningsplugin in QGIS 3</h1>
+
+ <p><i>
+   Want to read the Danish version? Then, click <a href="#da">here.</a></i></p>
+  <p>On this page, you can read about:</p>
+  <ul style="list-style-type:disc">
+    <li><a href="#installation_en">Installation</a></li>
+    <li><a href="#user">Create a user at Kortforsyningen</a></li>
+    <li><a href="#addlayer">Add a layer from the Kortforsyning menu to QGIS</a></li>
+    <li><a href="#addownlayers">Add your own layers to the Kortforsyning menu</a></li>
+    <li><a href="#servicestatus">Status of the service</a></li>
+  </ul>
+  <H2 id="installation_en">Installation</H2>
+  <p>
+   The Kortforsyningplugin is available from the QGIS' Official Plugin Repository. Start QGIS and search for 'Kortforsyningsplugin' in the Plugin Repository.</p>
+  <H2 id="user">Create a user at Kortforsyningen</H2>
+  <p>
+   To get started, a user at Kortforsyningen is required. If you are not registered as a user, create a user from this <a href="http://download.kortforsyningen.dk//content/opret-mig-som-bruger">link</a> – it’s free.</p>
+  <p> 
+   	Enter your username and password under the Kortforsyningspanel in the QGIS options dialog (a new feature in QGIS3!). Click on 'OK':</p>
+  <p>
+   <img src="KF_engelsk_1.png" alt="Settingdialog" style="width:900px">
+  </p>
+  <H2 id="addlayer">Add a layer from the Kortforsyning menu to QGIS</H2>
+  <p>
+  	When the plugin is installed, a new menu, called Kortforsyningen, is automatically added to QGIS. This menu contains webservices from the Kortforsyning. These webservices are categorized into themes.</p>
+  <p>
+  	With a click on a layer in the Kortforsyningsmenu, the layer is added to the layer panel:</p>
+  <p>
+  	<img src="KF_engelsk_2.png" alt="The Kortforsyning menu" style="width:900px"></p>
+  <p><i>
+  	Note. The services require internet, and the themes and layers are only displayed when the device is connected the internet.</i></p>
+  <p><i>
+  	Note. If you don't have access to the layers (and you have entered a correct username and password), the reason might be, that your web security settings doesn't allow the plugin connecting to the qlr-fil at Kortforsyningen (http://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/kf/kortforsyning_data.qlr). Approving the qlr-fil as an external connection in the web security settings might help.</i></p>
+  <p><i>
+  	Note. The themes displayed is based on your user type at Kortforsyningen. Hence, only if your user has access to some of the restricted WMS- or WFS-services included in the Kortforsyningsplugin, these will be available.</i></p>
+  <p>
+  	The layers from the Kortforsyning is also searchable from the locator (searchbar) in the lower left corner (a new feature in QGIS 3). It is possible to add layers from this searchbar.</p>
+  <p>	
+  	<img src="KF_engelsk_3.png" alt="The layers from the Kortforsyningsmenu is searchable in the new QGIS3 locator" style="width:900px"></p>
+  <H2 id="addownlayers">Add your own layers to the Kortforsyning menu</H2>
+  <p>
+  	It is possible to expand the Kortforsyningsmenu with your own themes and layers. This can be webservices from other providers (i.e. PlansystemDK) or your own layers (i.e. from a database or saved on a drive). The layers to be added need to be saved as a qlr-file.</p>
+  <p>
+    This is an example of what a qlr-file can look like, and the resulting added themes and layers in the Kortforsyningsmenu. The qlr-file consists of groups which names determine the theme name, while the groups content determines the layers in the theme:</p>
+  <p>
+    <img src="KF_engelsk_4.png" alt="Add your own layers to the Kortforsyningsmenu" style="width:900px"></p>
+  <H3>Create a qlr-file that can be used in the Kortforsyning-plugin:</H3>
+  <ol>
+    <li>Make sure that layers are stored with absolute paths in the QGIS-project:</p>
+    	<p><img src="KF_engelsk_5.png" alt="Absolut paths" style="width:860px"></p></li>
+    <li>Create a group. In the example, the group is named ‘Ekstra Lag’:</p>
+        <p><img src="Kf_engelsk_6.png" alt="Create a group" style="width:860px"></p></li>
+    <li>Add one or more subgroups to this group. The names of these groups, determine the theme names in the Kortforsyningsmenu. In the example there are 3 groups with the names ’PlansystemDK – lokalplaner’, ’PlansystemDK – Natur og Kulturbeskyttelser’ and ’Miljøportalen’.</li>
+    <li>Add the layers you want to each of the groups. Subgroups are not allowed. In the example 8 layers are added to the subgroup ’PlansystemDK – lokalplaner’.</li>
+    <li>Style the layers as you want them to be displayed, when added from the Kortforsyningsmenu.</li>
+    <li>When you are happy with the groups and their content, right click on the main group, and choose ‘Save As Layer Definition File’. Save the qlr-file:</p>
+        <p><img src="KF_engelsk_7.png" alt="Save the qlr-file" style="width:860px"></p></li>
+    <li>Add the qlr-file to the Kortforsyningsplugin by checking the ‘Extend Kortforsyningsplugin with qlr-file‘. Click on ‘Open qlr-file’ and browse to the qlr-file that you have just created. Select the qlr-file. Click ‘OK’:</p>
+        <p><img src="KF_engelsk_8.png" alt="Add the qlrfile to the Kortforsyningsplugin" style="width:860px"></p></li>
+    </ol>
+  <p>
+  	Notice, if your qlr-file includes local data, only people with access to these data, are able to add the layers from the Kortforsyningsmenu.</p>
+  <H2 id="servicestatus">Status of the service</H2>	
+  <p>
+  	The plugin uses services from the Kortforsyning. Check out the <a href='https://www.site24x7.com/sv.do?id=I0s1DBEcJmIQQ4zzx%2FsZd8HMN7GkuJ926JxdfdUY3JWh%2FR1xZMoA295dRuHP2wNqvWBeo9R4VTt2%0AlZX81BIklHoiIFDuVU4z"'>status of the services.</a></p>
+  </body>
+</html>
