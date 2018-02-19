@@ -13,7 +13,7 @@ name=Kortforsyningen
 qgisMinimumVersion=3.00
 qgisMaximumVersion=3.99
 description=Easy access to webservices from Kortforsyningen (The Danish Map Supply) in QGIS Desktop.
-version=2.0
+version=2.1
 author=Danish Agency for Data Supply and Efficiency
 email=kortforsyningen@gmail.com
 
@@ -25,7 +25,8 @@ about=This plugin makes it easy to use webservices from the Danish Map Supply (I
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
-changelog= 2017-11-24: version 2.0, Ported the plugin from QGIS 2 to the development branch of QGIS 3 (QGIS 2.99). Integrated the settings dialog in QGIS' settings and services searchable in the QGIS searcher (locator).
+changelog= 2018-02-19: version 2.1, Corrected links in the description
+  2017-11-24: version 2.0, Ported the plugin from QGIS 2 to the development branch of QGIS 3 (QGIS 2.99). Integrated the settings dialog in QGIS' settings and services searchable in the QGIS searcher (locator).
   2017-06-28: version 1.1, Adding alternative about dialog without QtWebKit and other small fixes
   2017-05-29: version 1.0, Changed configuration to qlr-file, possibility to add own qlr-fil, fixed different formats of urls in datasource,  improved error handlings and GUI improvements (icons,scaling issues etc.)
   2016-10-31: version 0.2, Minor text changes and logo change
