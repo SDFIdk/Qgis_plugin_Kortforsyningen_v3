@@ -93,13 +93,13 @@ class Kortforsyningen(object):
         self.createMenu()
         
     def show_kf_error(self):
-        message = u'Check connection and click menu Settings -> Options - > Kortforsyningen -> OK'
-        self.iface.messageBar().pushMessage("No contact to Kortforsyningen", message, level=Qgis.Warning, duration=5)
+        message = self.tr('Check connection and click menu Settings -> Options - > Kortforsyningen -> OK')
+        self.iface.messageBar().pushMessage(self.tr( 'No contact to Kortforsyningen'), message, level=Qgis.Warning, duration=5)
         log_message(message)
 
     def show_kf_settings_warning(self):
-        message = u'Username/Password not set or wrong. Select menu Settings -> Options - > Kortforsyningen'
-        self.iface.messageBar().pushMessage("Kortforsyningen", message, level=Qgis.Warning, duration=5)
+        message = self.tr('Username/Password not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
+        self.iface.messageBar().pushMessage(self.tr('Kortforsyningen'), message, level=Qgis.Warning, duration=5)
         log_message(message)
 
     def createMenu(self):
@@ -188,17 +188,6 @@ class Kortforsyningen(object):
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        """Get the translation for a string using Qt translation API.
-
-        We implement this ourselves since we do not inherit QObject.
-
-        :param message: String for translation.
-        :type message: str, QString
-
-        :returns: Translated version of message.
-        :rtype: QString
-        """
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('Kortforsyningen', message)
 
     # Taken directly from menu_from_project
