@@ -13,7 +13,7 @@ name=Kortforsyningen
 qgisMinimumVersion=3.00
 qgisMaximumVersion=3.99
 description=Easy access to webservices from Kortforsyningen (The Danish Map Supply) in QGIS Desktop.
-version=2.2
+version=2.3
 author=Danish Agency for Data Supply and Efficiency
 email=kortforsyningen@gmail.com
 
