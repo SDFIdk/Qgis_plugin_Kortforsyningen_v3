@@ -35,6 +35,7 @@ from urllib.error import (
 )
 from qgis.gui import QgsMessageBar
 from qgis.core import *
+
 from qgis.PyQt.QtCore import QCoreApplication, QFileInfo, QUrl, QSettings, QTranslator, qVersion
 
 from qgis.PyQt.QtWidgets import QAction, QMenu, QPushButton
@@ -45,15 +46,6 @@ from .qlr_file import QlrFile
 from .config import Config
 
 from .layerlocatorfilter import LayerLocatorFilter
-#Real URL"
-#CONFIG_FILE_URL = 'http://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/qgis_plugin.qlr'
-
-#Develop
-#CONFIG_FILE_URL = 'http://labs.septima.dk/qgis-kf-knap/kortforsyning_data.qlr'
-#CONFIG_FILE_URL = 'http://labs.septima.dk/qgis-kf-knap/kortforsyning_data_SDFE.qlr'
-##test version: 'http://labs.septima.dk/qgis-kf-knap/kortforsyning_data_inkl_restricteddata.qlr'
-#CONFIG_FILE_URL = 'http://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/qgis_plugin.qlr'
-
 ABOUT_FILE_URL = 'https://apps2.kortforsyningen.dk/qgis_knap_config/QGIS3/About/qgis3about.html'
 FILE_MAX_AGE = datetime.timedelta(hours=12)
 
@@ -64,13 +56,6 @@ class Kortforsyningen(object):
     """QGIS Plugin Implementation."""
 
     def __init__(self, iface):
-        """Constructor.
-
-        :param iface: An interface instance that will be passed to this class
-            which provides the hook by which you can manipulate the QGIS
-            application at run time.
-        :type iface: QgsInterface
-        """
         # Save reference to the QGIS interface
         self.iface = iface
         # initialize options
@@ -108,18 +93,14 @@ class Kortforsyningen(object):
         self.createMenu()
         
     def show_kf_error(self):
-        message = u'Check connection and click menu Settings -> Options - > Kortforsyningen -> OK'
-        self.iface.messageBar().pushMessage("No contact to Kortforsyningen", message, level=QgsMessageBar.WARNING, duration=5)
+        message = self.tr('Check connection and click menu Settings -> Options - > Kortforsyningen -> OK')
+        self.iface.messageBar().pushMessage(self.tr( 'No contact to Kortforsyningen'), message, level=Qgis.Warning, duration=5)
+        log_message(message)
 
     def show_kf_settings_warning(self):
-            widget = self.iface.messageBar().createMessage(
-                self.tr('Kortforsyningen'), self.tr(u'Username/Password not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
-            )
-            #settings_btn = QPushButton(widget)
-            #settings_btn.setText(self.tr("Settings"))
-            #settings_btn.pressed.connect(self.settings_dialog)
-            #idget.layout().addWidget(settings_btn)
-            self.iface.messageBar().pushWidget(widget, QgsMessageBar.WARNING, duration=10)
+        message = self.tr('Username/Password not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
+        self.iface.messageBar().pushMessage(self.tr('Kortforsyningen'), message, level=Qgis.Warning, duration=5)
+        log_message(message)
 
     def createMenu(self):
         self.config = Config(self.settings)
@@ -207,17 +188,6 @@ class Kortforsyningen(object):
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        """Get the translation for a string using Qt translation API.
-
-        We implement this ourselves since we do not inherit QObject.
-
-        :param message: String for translation.
-        :type message: str, QString
-
-        :returns: Translated version of message.
-        :rtype: QString
-        """
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('Kortforsyningen', message)
 
     # Taken directly from menu_from_project
