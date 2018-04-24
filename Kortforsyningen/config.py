@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from .kf_config import KfConfig
 from .local_config import LocalConfig
 from qgis.PyQt import (
