@@ -1,5 +1,3 @@
-from future import standard_library
-standard_library.install_aliases()
 from builtins import object
 from qgis.core import *
 from qgis.PyQt import QtXml
@@ -11,21 +9,12 @@ from qgis.PyQt import QtCore
 class QlrFile(object):
 
     def __init__(self, xml):
-        #self.filename = filename
-        #xml = file(unicode(filename)).read()
         try:
-            #txmlStream = QtCore.QTextStream(xml);
-            #txmlStream.setCodec("UTF-8");
-            #txmlStream.setAutoDetectUnicode(true);
-            
-            #d = txmlStream.readAll()
-            
             self.doc = QtXml.QDomDocument()
-            #xmlu = QtCore.QString(xml)
             self.doc.setContent(xml)
         except Exception as e:
             b= 3
-            
+
     def get_groups_with_layers(self):
         #result: [{'name': groupName, 'layers': [{'name': layerName, 'id': layerId}]}]
         result = []
