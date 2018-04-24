@@ -58,7 +58,7 @@ class KfConfig(QtCore.QObject):
     def get_allowed_kf_services(self):
         allowed_kf_services = {}
         allowed_kf_services['any_type'] = {'services': []}
-        url_to_get = self.replace_variables(KF_SERVICES_URL)
+        url_to_get = self.insert_username_password(KF_SERVICES_URL)
         response = urlopen(url_to_get)
         xml = response.read()
         doc = QtXml.QDomDocument()
@@ -162,7 +162,7 @@ class KfConfig(QtCore.QObject):
         response = urlopen(self.settings.value('kf_qlr_url'))
         content = response.read()
         content = str(content, 'utf-8')
-        content = self.replace_variables(content)
+        content = self.insert_username_password(content)
         return content
 
     def write_cached_kf_qlr(self, contents):
@@ -185,12 +185,7 @@ class KfConfig(QtCore.QObject):
         except Exception as e:
             pass
 
-    def replace_variables(self, text):
-        """
-        :param text: Input text
-        :return: text where variables has been replaced
-        """
-        # TODO: If settings are not set then show the settings dialog
+    def insert_username_password(self, text):
         result = text
         replace_vars = {}
         replace_vars["kf_username"] = self.settings.value('username')
