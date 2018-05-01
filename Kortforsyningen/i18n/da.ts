@@ -91,8 +91,8 @@
     </message>
     <message>
         <location filename="kf_settings.ui" line="124"/>
-        <source>Open qlr-file</source>
-        <translation>Åben qlr-fil</translation>
+        <source>Select qlr-file</source>
+        <translation>Vælg qlr-fil</translation>
     </message>
     <message>
         <location filename="kf_settings.ui" line="134"/>
