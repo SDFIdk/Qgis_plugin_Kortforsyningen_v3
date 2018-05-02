@@ -46,7 +46,7 @@
         <x>0</x>
         <y>0</y>
         <width>1032</width>
-        <height>293</height>
+        <height>254</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -80,43 +80,23 @@
           <item>
            <widget class="QGroupBox" name="groupBox">
             <property name="title">
-             <string>Userinformation to Kortforsyningen</string>
+             <string>User at Kortforsyningen</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
-              <widget class="QLabel" name="username_label">
+              <widget class="QLineEdit" name="token">
                <property name="text">
-                <string>Username</string>
+                <string/>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="username"/>
-             </item>
-             <item>
-              <widget class="QLabel" name="password_label">
-               <property name="text">
-                <string>Password</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="password">
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="inputMask">
-                <string notr="true"/>
-               </property>
-               <property name="echoMode">
-                <enum>QLineEdit::Password</enum>
+               <property name="placeholderText">
+                <string>Enter token to Kortforsyning</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QLabel" name="label">
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Not registered as user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find your token to Kortforsyningen (link).&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="openExternalLinks">
                 <bool>true</bool>
