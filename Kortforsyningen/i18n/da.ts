@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="kortforsyningen.py" line="170"/>
-        <source>Username/Password not set or wrong. Click menu Settings-&gt;Options-&gt;Kortforsyningen</source>
-        <translation>Brugernavn/kodeord er ikke indtastet eller er forkert. Klik på Indstillinger-&gt;Generelle indstillinger-&gt;Kortforsyningen</translation>
+        <source>Token not set or wrong. Click menu Settings-&gt;Options-&gt;Kortforsyningen</source>
+        <translation>Token er ikke indtastet eller er forkert. Klik på Indstillinger-&gt;Generelle indstillinger-&gt;Kortforsyningen</translation>
     </message>
     <message>
         <location filename="kortforsyningen.py" line="336"/>

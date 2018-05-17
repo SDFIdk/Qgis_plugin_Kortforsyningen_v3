@@ -97,7 +97,7 @@ class Kortforsyningen(object):
         log_message(message)
 
     def show_kf_settings_warning(self):
-        message = self.tr('Username/Password not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
+        message = self.tr('Token not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
         self.iface.messageBar().pushMessage(self.tr('Kortforsyningen'), message, level=Qgis.Warning, duration=5)
         log_message(message)
 

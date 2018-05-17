@@ -4,15 +4,15 @@ from PyQt5.QtCore import QFileInfo, QObject
 from qgis.PyQt import QtCore
 
 from .qgissettingmanager import *
-CONFIG_FILE_URL ='https://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/kf/kortforsyning_data.qlr'
+#CONFIG_FILE_URL ='https://apps2.kortforsyningen.dk/qgis_knap_config/Kortforsyningen/kf/kortforsyning_data.qlr'
+CONFIG_FILE_URL ='https://labs.septima.dk/qgis-kf-knap/kortforsyning_data_token.qlr'
 
 class Settings(SettingManager):
     settings_updated = QtCore.pyqtSignal()
 
     def __init__(self):
         SettingManager.__init__(self, 'Kortforsyningen')
-        self.add_setting(String('username', Scope.Global, ''))
-        self.add_setting(String('password', Scope.Global, ''))
+        self.add_setting(String('token', Scope.Global, ''))
         self.add_setting(Bool('use_custom_file', Scope.Global, False))
         self.add_setting(String('custom_qlr_file', Scope.Global, ''))
         self.add_setting(Bool('only_background', Scope.Global, False))
@@ -25,7 +25,7 @@ class Settings(SettingManager):
         self.add_setting(String('kf_qlr_url', Scope.Global, CONFIG_FILE_URL))
         
     def is_set(self):
-        if self.value('username') and self.value('password'):
+        if self.value('token'):
             return True
         return False
     
