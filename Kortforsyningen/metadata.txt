@@ -13,7 +13,7 @@ name=Kortforsyningen
 qgisMinimumVersion=3.00
 qgisMaximumVersion=3.99
 description=Easy access to webservices from Kortforsyningen (The Danish Map Supply) in QGIS Desktop.
-version=2.4
+version=2.5
 author=Danish Agency for Data Supply and Efficiency
 email=kortforsyningen@gmail.com
 
@@ -25,7 +25,8 @@ about=This plugin makes it easy to use webservices from the Danish Map Supply (I
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
-changelog=2018-04-24: version 2.4 Removed use of future to fix issue with Mac
+changelog=2019-01-09: version 2.5 Connection details in layers are now changed when user is changed
+  2018-04-24: version 2.4 Removed use of future to fix issue with Mac
   2018-03-12: version 2.3 Fixed crash in locator
   2018-03-07: version 2.2, Fixed Issue 6
   2018-02-19: version 2.1, Corrected links in the description
