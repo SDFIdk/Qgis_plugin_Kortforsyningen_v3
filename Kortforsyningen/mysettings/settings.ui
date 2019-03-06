@@ -45,8 +45,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1032</width>
-        <height>254</height>
+        <width>1028</width>
+        <height>368</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -80,7 +80,7 @@
           <item>
            <widget class="QGroupBox" name="groupBox">
             <property name="title">
-             <string>User at Kortforsyningen</string>
+             <string>Token at Kortforsyningen</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
@@ -96,7 +96,7 @@
              <item>
               <widget class="QLabel" name="label">
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find your token to Kortforsyningen (link).&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Find your token to Kortforsyningen&lt;/span&gt;&lt;/a&gt; or &lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;create a new token&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="openExternalLinks">
                 <bool>true</bool>
@@ -118,6 +118,13 @@
              <bool>false</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="use_custom_file">
+               <property name="text">
+                <string>Extend Kortforsyningsplugin with qlr-file</string>
+               </property>
+              </widget>
+             </item>
              <item row="1" column="0">
               <widget class="QFrame" name="frame_3">
                <property name="frameShape">
@@ -155,13 +162,6 @@
                  </widget>
                 </item>
                </layout>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="use_custom_file">
-               <property name="text">
-                <string>Extend Kortforsyningsplugin with qlr-file</string>
-               </property>
               </widget>
              </item>
             </layout>
