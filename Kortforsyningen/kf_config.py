@@ -41,8 +41,7 @@ class KfConfig(QtCore.QObject):
         self.settings = settings
 
     def load(self):
-        username_password_combined = self.settings.value('password')+self.settings.value('username')
-        self.cached_kf_qlr_filename = self.settings.value('cache_path') + hashlib.md5(username_password_combined.encode()).hexdigest() +'_kortforsyning_data.qlr'
+        self.cached_kf_qlr_filename = self.settings.value('cache_path') + hashlib.md5(self.settings.value('token').encode()).hexdigest() +'_kortforsyning_data.qlr'
         self.allowed_kf_services = {}
         if self.settings.is_set():
             try:
