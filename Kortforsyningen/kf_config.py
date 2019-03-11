@@ -20,6 +20,9 @@ from qgis.PyQt import QtCore, QtXml
 
 import json
 
+import hashlib
+import glob
+
 from .qlr_file import QlrFile
 
 FILE_MAX_AGE = datetime.timedelta(hours=12)
@@ -38,7 +41,8 @@ class KfConfig(QtCore.QObject):
         self.settings = settings
 
     def load(self):
-        self.cached_kf_qlr_filename = self.settings.value('cache_path') + 'kortforsyning_data.qlr'
+        username_password_combined = self.settings.value('password')+self.settings.value('username')
+        self.cached_kf_qlr_filename = self.settings.value('cache_path') + hashlib.md5(username_password_combined.encode()).hexdigest() +'_kortforsyning_data.qlr'
         self.allowed_kf_services = {}
         if self.settings.is_set():
             try:
@@ -168,8 +172,8 @@ class KfConfig(QtCore.QObject):
     def write_cached_kf_qlr(self, contents):
         """We only call this function IF we have a new version downloaded"""
         # Remove old versions file
-        if os.path.exists(self.cached_kf_qlr_filename):
-            os.remove(self.cached_kf_qlr_filename)
+        for filename in glob.glob(self.settings.value('cache_path') +'*_kortforsyning_data.qlr'):
+            os.remove(filename)
 
         # Write new version
         with codecs.open(self.cached_kf_qlr_filename, 'w', 'utf-8') as f:
@@ -192,5 +196,3 @@ class KfConfig(QtCore.QObject):
         for i, j in replace_vars.items():
             result = result.replace("{{" + str(i) + "}}", str(j))
         return result
-
-
