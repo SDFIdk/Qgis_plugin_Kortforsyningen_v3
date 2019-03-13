@@ -53,18 +53,8 @@
     </message>
     <message>
         <location filename="settings.ui" line="83"/>
-        <source>User at Kortforsyningen</source>
-        <translation>Kortforsyningsbruger</translation>
-    </message>
-    <message>
-        <location filename="settings.ui" line="92"/>
         <source>Enter token to Kortforsyning</source>
         <translation>Angiv token til Kortforsyning</translation>
-    </message>
-    <message>
-        <location filename="settings.ui" line="99"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find your token to Kortforsyningen (link).&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Find dit token til Kortforsyningen (link).&lt;/p&gt;&lt;p&gt;Ikke registreret som Kortforsyningsbruger? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Opret bruger &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="settings.ui" line="163"/>
@@ -72,7 +62,7 @@
         <translation>Udvid Kortforsyningsplugin med qlr-fil</translation>
     </message>
     <message>
-        <location filename="settings.ui" line="143"/>
+        <location filename="settings.ui" line="79"/>
         <source>Select qlr-file</source>
         <translation>Vælg qlr-fil</translation>
     </message>
@@ -82,19 +72,14 @@
         <translation>Vis kun baggrundskort fra Kortforsyningen</translation>
     </message>
     <message>
-        <location filename="kf_settings.ui" line="156"/>
-        <source>Save settings</source>
-        <translation>Gem indstillinger</translation>
+        <location filename="settings.ui" line="83"/>
+        <source>Token</source>
+        <translation>Token</translation>
     </message>
     <message>
-        <location filename="kf_settings.ui" line="83"/>
-        <source>Token at Kortforsyning</source>
-        <translation>Token til Kortforsyningen</translation>
-    </message>
-    <message>
-        <location filename="kf_settings.ui" line="99"/>
+        <location filename="settings.ui" line="99"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Find your token to Kortforsyningen&lt;/span&gt;&lt;/a&gt; or &lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;create a new token&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Find dit token til Kortforsyningen&lt;/span&gt;&lt;/a&gt; or &lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;eller opret nyt token&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Find dit token til Kortforsyningen&lt;/span&gt;&lt;/a&gt; eller &lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; opret nyt token&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Ikke registreret som bruger på Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Opret bruger&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 </TS>
