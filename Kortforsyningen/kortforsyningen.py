@@ -45,7 +45,7 @@ from .qlr_file import QlrFile
 from .config import Config
 
 from .layerlocatorfilter import LayerLocatorFilter
-ABOUT_FILE_URL = 'https://apps2.kortforsyningen.dk/qgis_knap_config/QGIS3/About/qgis3about_from_version2_6.html'
+ABOUT_FILE_URL = 'https://apps2.kortforsyningen.dk/qgis_knap_config/QGIS3/About/qgis3about.html'
 FILE_MAX_AGE = datetime.timedelta(hours=12)
 
 def log_message(message):
