@@ -45,8 +45,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1028</width>
-        <height>368</height>
+        <width>1032</width>
+        <height>254</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -80,7 +80,7 @@
           <item>
            <widget class="QGroupBox" name="groupBox">
             <property name="title">
-             <string>Token at Kortforsyningen</string>
+             <string>Token</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
