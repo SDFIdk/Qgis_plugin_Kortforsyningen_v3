@@ -1,0 +1,307 @@
+<!DOCTYPE qgis-layer-definition>
+<qlr>
+  <layer-tree-group name="" expanded="1" checked="Qt::Checked">
+    <customproperties/>
+    <layer-tree-group name="qlr-test" expanded="1" checked="Qt::Checked">
+      <customproperties/>
+      <layer-tree-group name="matrikel" expanded="1" checked="Qt::Checked">
+        <customproperties/>
+        <layer-tree-layer name="kms:Sogn" id="kms_Sogn_6c0be8b3_2748_4e8c_b655_5a08168e13f4" expanded="1" checked="Qt::Checked" source=" pagingEnabled='true' restrictToRequestBBOX='1' srsname='EPSG:25832' typename='kms:Sogn' url='https://services.kortforsyningen.dk/service?servicename=mat_gml2&amp;version=1.1.1&amp;token=4164021bc96a06a9c3db9b99749708e1' version='auto' table=&quot;&quot; sql=" providerKey="WFS">
+          <customproperties/>
+        </layer-tree-layer>
+      </layer-tree-group>
+    </layer-tree-group>
+  </layer-tree-group>
+  <maplayers>
+    <maplayer styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" type="vector" simplifyAlgorithm="0" autoRefreshEnabled="0" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0" simplifyMaxScale="1" geometry="Polygon" labelsEnabled="0" readOnly="0" minScale="1e+08" simplifyDrawingHints="1" simplifyLocal="1" simplifyDrawingTol="1">
+      <extent>
+        <xmin>720706.2029999999795109</xmin>
+        <ymin>6162367.321000000461936</ymin>
+        <xmax>740409.31700000003911555</xmax>
+        <ymax>6181191.17399999964982271</ymax>
+      </extent>
+      <id>kms_Sogn_6c0be8b3_2748_4e8c_b655_5a08168e13f4</id>
+      <datasource> pagingEnabled='true' restrictToRequestBBOX='1' srsname='EPSG:25832' typename='kms:Sogn' url='https://services.kortforsyningen.dk/service?servicename=mat_gml2&amp;version=1.1.1&amp;token={{kf_token}}' version='auto' table="" sql=</datasource>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>kms:Sogn</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=utm +zone=32 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+          <srsid>2105</srsid>
+          <srid>25832</srid>
+          <authid>EPSG:25832</authid>
+          <description>ETRS89 / UTM zone 32N</description>
+          <projectionacronym>utm</projectionacronym>
+          <ellipsoidacronym>GRS80</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent/>
+      </resourceMetadata>
+      <provider encoding="UTF-8">WFS</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="standard">
+        <map-layer-style name="standard"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 type="singleSymbol" forceraster="0" enableorderby="0" symbollevels="0">
+        <symbols>
+          <symbol name="0" type="fill" force_rhr="0" clip_to_extent="1" alpha="1">
+            <layer enabled="1" locked="0" class="SimpleFill" pass="0">
+              <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="color" v="255,158,23,255"/>
+              <prop k="joinstyle" v="bevel"/>
+              <prop k="offset" v="0,0"/>
+              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
+              <prop k="offset_unit" v="MM"/>
+              <prop k="outline_color" v="35,35,35,255"/>
+              <prop k="outline_style" v="solid"/>
+              <prop k="outline_width" v="0.26"/>
+              <prop k="outline_width_unit" v="MM"/>
+              <prop k="style" v="solid"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""/>
+                  <Option name="properties"/>
+                  <Option name="type" type="QString" value="collection"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties/>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
+        <activeChecks/>
+        <checkConfiguration/>
+      </geometryOptions>
+      <fieldConfiguration>
+        <field name="featureID">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="featureType">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="featureCode">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="datasetIdentifier">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dataQualitySpecification">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dataQualityStatement">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dataQualityDescription">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dataQualityProcessor">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="dataQualityResponsibleParty">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="timeOfCreation">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="timeOfPublication">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="timeOfRevision">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="adminKode">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="adminNavn">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias name="" index="0" field="featureID"/>
+        <alias name="" index="1" field="featureType"/>
+        <alias name="" index="2" field="featureCode"/>
+        <alias name="" index="3" field="datasetIdentifier"/>
+        <alias name="" index="4" field="dataQualitySpecification"/>
+        <alias name="" index="5" field="dataQualityStatement"/>
+        <alias name="" index="6" field="dataQualityDescription"/>
+        <alias name="" index="7" field="dataQualityProcessor"/>
+        <alias name="" index="8" field="dataQualityResponsibleParty"/>
+        <alias name="" index="9" field="timeOfCreation"/>
+        <alias name="" index="10" field="timeOfPublication"/>
+        <alias name="" index="11" field="timeOfRevision"/>
+        <alias name="" index="12" field="adminKode"/>
+        <alias name="" index="13" field="adminNavn"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default applyOnUpdate="0" expression="" field="featureID"/>
+        <default applyOnUpdate="0" expression="" field="featureType"/>
+        <default applyOnUpdate="0" expression="" field="featureCode"/>
+        <default applyOnUpdate="0" expression="" field="datasetIdentifier"/>
+        <default applyOnUpdate="0" expression="" field="dataQualitySpecification"/>
+        <default applyOnUpdate="0" expression="" field="dataQualityStatement"/>
+        <default applyOnUpdate="0" expression="" field="dataQualityDescription"/>
+        <default applyOnUpdate="0" expression="" field="dataQualityProcessor"/>
+        <default applyOnUpdate="0" expression="" field="dataQualityResponsibleParty"/>
+        <default applyOnUpdate="0" expression="" field="timeOfCreation"/>
+        <default applyOnUpdate="0" expression="" field="timeOfPublication"/>
+        <default applyOnUpdate="0" expression="" field="timeOfRevision"/>
+        <default applyOnUpdate="0" expression="" field="adminKode"/>
+        <default applyOnUpdate="0" expression="" field="adminNavn"/>
+      </defaults>
+      <constraints>
+        <constraint field="featureID" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="featureType" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="featureCode" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="datasetIdentifier" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="dataQualitySpecification" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="dataQualityStatement" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="dataQualityDescription" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="dataQualityProcessor" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="dataQualityResponsibleParty" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="timeOfCreation" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="timeOfPublication" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="timeOfRevision" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="adminKode" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="adminNavn" exp_strength="0" unique_strength="0" notnull_strength="0" constraints="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint desc="" field="featureID" exp=""/>
+        <constraint desc="" field="featureType" exp=""/>
+        <constraint desc="" field="featureCode" exp=""/>
+        <constraint desc="" field="datasetIdentifier" exp=""/>
+        <constraint desc="" field="dataQualitySpecification" exp=""/>
+        <constraint desc="" field="dataQualityStatement" exp=""/>
+        <constraint desc="" field="dataQualityDescription" exp=""/>
+        <constraint desc="" field="dataQualityProcessor" exp=""/>
+        <constraint desc="" field="dataQualityResponsibleParty" exp=""/>
+        <constraint desc="" field="timeOfCreation" exp=""/>
+        <constraint desc="" field="timeOfPublication" exp=""/>
+        <constraint desc="" field="timeOfRevision" exp=""/>
+        <constraint desc="" field="adminKode" exp=""/>
+        <constraint desc="" field="adminNavn" exp=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig sortOrder="0" sortExpression="" actionWidgetStyle="dropDown">
+        <columns/>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable/>
+      <labelOnTop/>
+      <widgets/>
+      <previewExpression></previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </maplayers>
+</qlr>
