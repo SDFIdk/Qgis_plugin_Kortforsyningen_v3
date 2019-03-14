@@ -31,8 +31,9 @@ LOCALES = da
 # If locales are enabled, set the name of the lrelease binary on your system. If
 # you have trouble compiling the translations, you may have to specify the full path to
 # lrelease
-LRELEASE = lrelease
+#LRELEASE = lrelease
 #LRELEASE = lrelease-qt4
+LRELEASE="C:/OSGeo4W64/bin/lrelease.exe"
 
 
 # translation
@@ -54,8 +55,7 @@ PY_FILES = \
 	__init__.py
 
 UI_FILES = \
-	kf_settings.ui \
-	aboutKortforsyningen.ui
+	settings.ui 
 
 EXTRAS = icon.png metadata.txt
 

@@ -26,7 +26,7 @@ import glob
 from .qlr_file import QlrFile
 
 FILE_MAX_AGE = datetime.timedelta(hours=12)
-KF_SERVICES_URL = 'http://services.kortforsyningen.dk/service?request=GetServices&login={{kf_username}}&password={{kf_password}}'
+KF_SERVICES_URL = 'http://services.kortforsyningen.dk/service?request=GetServices&token={{kf_token}}'
 
 def log_message(message):
     QgsMessageLog.logMessage(message, 'Kortforsyningen plugin')
@@ -41,8 +41,7 @@ class KfConfig(QtCore.QObject):
         self.settings = settings
 
     def load(self):
-        username_password_combined = self.settings.value('password')+self.settings.value('username')
-        self.cached_kf_qlr_filename = self.settings.value('cache_path') + hashlib.md5(username_password_combined.encode()).hexdigest() +'_kortforsyning_data.qlr'
+        self.cached_kf_qlr_filename = self.settings.value('cache_path') + hashlib.md5(self.settings.value('token').encode()).hexdigest() +'_kortforsyning_data.qlr'
         self.allowed_kf_services = {}
         if self.settings.is_set():
             try:
@@ -62,7 +61,7 @@ class KfConfig(QtCore.QObject):
     def get_allowed_kf_services(self):
         allowed_kf_services = {}
         allowed_kf_services['any_type'] = {'services': []}
-        url_to_get = self.insert_username_password(KF_SERVICES_URL)
+        url_to_get = self.insert_token(KF_SERVICES_URL)
         response = urlopen(url_to_get)
         xml = response.read()
         doc = QtXml.QDomDocument()
@@ -166,7 +165,7 @@ class KfConfig(QtCore.QObject):
         response = urlopen(self.settings.value('kf_qlr_url'))
         content = response.read()
         content = str(content, 'utf-8')
-        content = self.insert_username_password(content)
+        content = self.insert_token(content)
         return content
 
     def write_cached_kf_qlr(self, contents):
@@ -189,11 +188,10 @@ class KfConfig(QtCore.QObject):
         except Exception as e:
             pass
 
-    def insert_username_password(self, text):
+    def insert_token(self, text):
         result = text
         replace_vars = {}
-        replace_vars["kf_username"] = self.settings.value('username')
-        replace_vars["kf_password"] = self.settings.value('password')
+        replace_vars["kf_token"] = self.settings.value('token')
         for i, j in replace_vars.items():
             result = result.replace("{{" + str(i) + "}}", str(j))
         return result

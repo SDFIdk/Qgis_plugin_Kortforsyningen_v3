@@ -46,7 +46,7 @@
         <x>0</x>
         <y>0</y>
         <width>1032</width>
-        <height>293</height>
+        <height>254</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -80,43 +80,23 @@
           <item>
            <widget class="QGroupBox" name="groupBox">
             <property name="title">
-             <string>Userinformation to Kortforsyningen</string>
+             <string>Token</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout">
              <item>
-              <widget class="QLabel" name="username_label">
+              <widget class="QLineEdit" name="token">
                <property name="text">
-                <string>Username</string>
+                <string/>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="username"/>
-             </item>
-             <item>
-              <widget class="QLabel" name="password_label">
-               <property name="text">
-                <string>Password</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="password">
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="inputMask">
-                <string notr="true"/>
-               </property>
-               <property name="echoMode">
-                <enum>QLineEdit::Password</enum>
+               <property name="placeholderText">
+                <string>Enter token to Kortforsyning</string>
                </property>
               </widget>
              </item>
              <item>
               <widget class="QLabel" name="label">
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Not registered as user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Find your token to Kortforsyningen&lt;/span&gt;&lt;/a&gt; or &lt;a href=&quot;https://kortforsyningen.dk/indhold/min-side-0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;create a new token&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Not registered as a user at Kortforsyningen? &lt;a href=&quot;http://download.kortforsyningen.dk//content/opret-mig-som-bruger&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Create user &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
                <property name="openExternalLinks">
                 <bool>true</bool>
@@ -138,6 +118,13 @@
              <bool>false</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="use_custom_file">
+               <property name="text">
+                <string>Extend Kortforsyningsplugin with qlr-file</string>
+               </property>
+              </widget>
+             </item>
              <item row="1" column="0">
               <widget class="QFrame" name="frame_3">
                <property name="frameShape">
@@ -160,7 +147,7 @@
                    <bool>false</bool>
                   </property>
                   <property name="text">
-                   <string>Open qlr-file</string>
+                   <string>Select qlr-file</string>
                   </property>
                  </widget>
                 </item>
@@ -175,13 +162,6 @@
                  </widget>
                 </item>
                </layout>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="use_custom_file">
-               <property name="text">
-                <string>Extend Kortforsyningsplugin with qlr-file</string>
-               </property>
               </widget>
              </item>
             </layout>
