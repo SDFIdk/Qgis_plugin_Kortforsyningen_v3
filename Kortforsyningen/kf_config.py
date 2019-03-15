@@ -25,7 +25,7 @@ import glob
 
 from .qlr_file import QlrFile
 
-FILE_MAX_AGE = datetime.timedelta(hours=0)
+FILE_MAX_AGE = datetime.timedelta(hours=12)
 KF_SERVICES_URL = 'http://services.kortforsyningen.dk/service?request=GetServices&token={{kf_token}}'
 
 def log_message(message):
