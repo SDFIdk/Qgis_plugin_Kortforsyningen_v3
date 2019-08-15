@@ -75,7 +75,10 @@ class Kortforsyningen(object):
 
         # initialize locale
         path = QFileInfo(os.path.realpath(__file__)).path()
-        locale = QSettings().value('locale/userLocale')[0:2]
+        try:
+            locale = self.config.value("locale/userLocale")[0:2]
+        except:
+            locale = 'da'
         locale_path = os.path.join(
              path,
             'i18n',
