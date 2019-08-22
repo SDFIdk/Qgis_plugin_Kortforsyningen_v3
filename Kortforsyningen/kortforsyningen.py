@@ -25,13 +25,6 @@ from builtins import object
 import codecs
 import os.path
 import datetime
-from urllib.request import (
-    urlopen
-)
-from urllib.error import (
-    URLError,
-    HTTPError
-)
 from qgis.gui import QgsMessageBar
 from qgis.core import *
 
@@ -63,15 +56,23 @@ class Kortforsyningen(object):
         self.options_factory = OptionsFactory(self.settings)
         self.options_factory.setTitle(self.tr('Kortforsyningen'))
         iface.registerOptionsWidgetFactory(self.options_factory)
+
+        self.config = Config(self.settings)
+        self.config.kf_con_error.connect(self.show_kf_error)
+        self.config.kf_settings_warning.connect(self.show_kf_settings_warning)
+        self.config.loaded.connect(self.fillMenu)
         
         self.layer_locator_filter = LayerLocatorFilter()
         self.iface.registerLocatorFilter(self.layer_locator_filter)
+        self.menu = None
         # An error menu object, set to None.
         self.error_menu = None
         # Categories
         self.categories = []
+        self.category_lists = []
         self.nodes_by_index = {}
         self.node_count = 0
+        self.category_menus = []
 
         # initialize locale
         path = QFileInfo(os.path.realpath(__file__)).path()
@@ -105,18 +106,19 @@ class Kortforsyningen(object):
         log_message(message)
 
     def createMenu(self):
-        self.config = Config(self.settings)
-        self.config.kf_con_error.connect(self.show_kf_error)
-        self.config.kf_settings_warning.connect(self.show_kf_settings_warning)
-        self.config.load()
-        self.categories = self.config.get_categories()
-        self.category_lists = self.config.get_category_lists()
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
+        """Create the menu entries and toolbar icons inside the QGIS GUI."""        
         self.menu = QMenu(self.iface.mainWindow().menuBar())
         self.menu.setObjectName(self.tr('Kortforsyningen'))
         self.menu.setTitle(self.tr('Kortforsyningen'))
-        
+        menu_bar = self.iface.mainWindow().menuBar()
+        menu_bar.insertMenu(
+            self.iface.firstRightStandardMenu().menuAction(), self.menu
+        )
+        self.config.begin_load()
+
+    def fillMenu(self):
+        self.categories = self.config.get_categories()
+        self.category_lists = self.config.get_category_lists()
         searchable_layers = []
 
         if self.error_menu:
@@ -169,10 +171,7 @@ class Kortforsyningen(object):
         self.about_menu.triggered.connect(self.about_dialog)
         self.menu.addAction(self.about_menu)
 
-        menu_bar = self.iface.mainWindow().menuBar()
-        menu_bar.insertMenu(
-            self.iface.firstRightStandardMenu().menuAction(), self.menu
-        )
+
         
     def open_local_node(self, id):
         node = self.config.get_local_maplayer_node(id)
@@ -218,8 +217,12 @@ class Kortforsyningen(object):
         self.iface.openURL(ABOUT_FILE_URL + lang, False)
 
     def unload(self):
-        self.iface.unregisterOptionsWidgetFactory(self.options_factory)
-        self.iface.deregisterLocatorFilter(self.layer_locator_filter)
+        if self.options_factory:
+            self.iface.unregisterOptionsWidgetFactory(self.options_factory)
+            self.options_factory = None
+        if self.layer_locator_filter:
+            self.iface.deregisterLocatorFilter(self.layer_locator_filter)
+            self.layer_locator_filter = None
         self.clearMenu();
         
     def reloadMenu(self):
@@ -231,6 +234,8 @@ class Kortforsyningen(object):
         for submenu in self.category_menus:
             if submenu:
                 submenu.deleteLater()
+        self.category_menus = []
         # remove the menu bar item
         if self.menu:
             self.menu.deleteLater()
+            self.menu = None
