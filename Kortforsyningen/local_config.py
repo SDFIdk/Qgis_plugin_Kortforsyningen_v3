@@ -7,6 +7,7 @@ class LocalConfig(object):
     
     def __init__(self, settings):
         self.settings = settings
+        self.settings.settings_updated.connect(self.reload)
         self.reload()
     
     def reload(self):
