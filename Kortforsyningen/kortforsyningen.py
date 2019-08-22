@@ -77,7 +77,8 @@ class Kortforsyningen(object):
         # initialize locale
         path = QFileInfo(os.path.realpath(__file__)).path()
         try:
-            locale = self.config.value("locale/userLocale")[0:2]
+            settings = QSettings()
+            locale = settings.value("locale/userLocale")[0:2]
         except:
             locale = 'da'
         locale_path = os.path.join(
@@ -96,21 +97,32 @@ class Kortforsyningen(object):
         self.createMenu()
         
     def show_kf_error(self):
-        message = self.tr('Check connection and click menu Settings -> Options - > Kortforsyningen -> OK')
-        self.iface.messageBar().pushMessage(self.tr( 'No contact to Kortforsyningen'), message, level=Qgis.Warning, duration=5)
+        title = self.tr( 'No contact to Kortforsyningen')
+        message = self.tr('Check internet connection and Kortforsyningen settings')
         log_message(message)
+        self.show_messagebar_linked_to_settings(title, message)
 
     def show_kf_settings_warning(self):
-        message = self.tr('Token not set or wrong. Select menu Settings -> Options - > Kortforsyningen')
-        self.iface.messageBar().pushMessage(self.tr('Kortforsyningen'), message, level=Qgis.Warning, duration=5)
+        title = self.tr('Kortforsyningen')
+        message = self.tr('Token not set or wrong')
         log_message(message)
+        self.show_messagebar_linked_to_settings(title, message)
+
+    def show_messagebar_linked_to_settings(self, title, message, level=Qgis.Warning, duration=15):
+        button_text = self.tr(u'Open settings')	                
+        widget = self.iface.messageBar().createMessage(title, message)
+        button = QPushButton(widget)
+        button.setText(button_text)
+        button.pressed.connect(lambda : self.iface.showOptionsDialog(currentPage='kortforsyningenOptions'))
+        widget.layout().addWidget(button)
+        self.iface.messageBar().pushWidget(widget, level=level, duration=duration)
 
     def createMenu(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""        
-        self.menu = QMenu(self.iface.mainWindow().menuBar())
+        """Create the menu entries and toolbar icons inside the QGIS GUI.""" 
+        menu_bar = self.iface.mainWindow().menuBar()       
+        self.menu = QMenu(menu_bar)
         self.menu.setObjectName(self.tr('Kortforsyningen'))
         self.menu.setTitle(self.tr('Kortforsyningen'))
-        menu_bar = self.iface.mainWindow().menuBar()
         menu_bar.insertMenu(
             self.iface.firstRightStandardMenu().menuAction(), self.menu
         )
