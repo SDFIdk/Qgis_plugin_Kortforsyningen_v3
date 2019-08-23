@@ -1,15 +1,14 @@
+from qgis.PyQt import QtCore
 from .kf_config import KfConfig
 from .local_config import LocalConfig
-from qgis.PyQt import (
-    QtCore
-)
+
 
 class Config(QtCore.QObject):
 
     kf_con_error = QtCore.pyqtSignal()
     kf_settings_warning = QtCore.pyqtSignal()
     loaded = QtCore.pyqtSignal()
-            
+
     def __init__(self, settings):
         super(Config, self).__init__()
         self.settings = settings
@@ -26,17 +25,19 @@ class Config(QtCore.QObject):
 
     def propagate_kf_settings_warning(self):
         self.kf_settings_warning.emit()
-        
+
     def propagate_kf_con_error(self):
         self.kf_con_error.emit()
-        
+
     def begin_load(self):
         self.kf_config.begin_load()
 
     def _handle_kf_config_loaded(self):
         self.categories = []
         self.categories_list = []
-        if self.settings.value('use_custom_file') and self.settings.value('only_background'):
+        if self.settings.value("use_custom_file") and self.settings.value(
+            "only_background"
+        ):
             self.kf_categories = []
             background_category = self.kf_config.get_background_category()
             if background_category:
@@ -47,18 +48,18 @@ class Config(QtCore.QObject):
         self.categories = self.kf_categories + self.local_categories
         self.categories_list.append(self.kf_categories)
         self.categories_list.append(self.local_categories)
-        
+
         # Tell the world
         self.loaded.emit()
 
     def get_category_lists(self):
         return self.categories_list
-    
+
     def get_categories(self):
         return self.categories
 
     def get_kf_maplayer_node(self, id):
         return self.kf_config.get_maplayer_node(id)
-    
+
     def get_local_maplayer_node(self, id):
         return self.local_config.get_maplayer_node(id)

@@ -20,29 +20,35 @@
  *                                                                         *
  ***************************************************************************/
 """
-from builtins import str
-from builtins import object
-import codecs
 import os.path
 import datetime
 from qgis.gui import QgsMessageBar
 from qgis.core import *
-
-from qgis.PyQt.QtCore import QCoreApplication, QFileInfo, QUrl, QSettings, QTranslator, qVersion
-
+from qgis.PyQt.QtCore import (
+    QCoreApplication,
+    QFileInfo,
+    QUrl,
+    QSettings,
+    QTranslator,
+    qVersion,
+)
 from qgis.PyQt.QtWidgets import QAction, QMenu, QPushButton
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt import QtXml
 from .mysettings import *
 from .qlr_file import QlrFile
 from .config import Config
-
 from .layerlocatorfilter import LayerLocatorFilter
-ABOUT_FILE_URL = 'https://apps2.kortforsyningen.dk/qgis_knap_config/QGIS3/About/qgis3about.html'
+
+ABOUT_FILE_URL = (
+    "https://apps2.kortforsyningen.dk/qgis_knap_config/QGIS3/About/qgis3about.html"
+)
 FILE_MAX_AGE = datetime.timedelta(hours=12)
 
+
 def log_message(message):
-    QgsMessageLog.logMessage(message, 'Kortforsyningen plugin')
+    QgsMessageLog.logMessage(message, "Kortforsyningen plugin")
+
 
 class Kortforsyningen(object):
     """QGIS Plugin Implementation."""
@@ -54,14 +60,14 @@ class Kortforsyningen(object):
         self.settings = Settings()
         self.settings.settings_updated.connect(self.reloadMenu)
         self.options_factory = OptionsFactory(self.settings)
-        self.options_factory.setTitle(self.tr('Kortforsyningen'))
+        self.options_factory.setTitle(self.tr("Kortforsyningen"))
         iface.registerOptionsWidgetFactory(self.options_factory)
 
         self.config = Config(self.settings)
         self.config.kf_con_error.connect(self.show_kf_error)
         self.config.kf_settings_warning.connect(self.show_kf_settings_warning)
         self.config.loaded.connect(self.fillMenu)
-        
+
         self.layer_locator_filter = LayerLocatorFilter()
         self.iface.registerLocatorFilter(self.layer_locator_filter)
         self.menu = None
@@ -80,52 +86,51 @@ class Kortforsyningen(object):
             settings = QSettings()
             locale = settings.value("locale/userLocale")[0:2]
         except:
-            locale = 'da'
-        locale_path = os.path.join(
-             path,
-            'i18n',
-            '{}.qm'.format(locale))
+            locale = "da"
+        locale_path = os.path.join(path, "i18n", "{}.qm".format(locale))
 
         if os.path.exists(locale_path):
             self.translator = QTranslator()
             self.translator.load(locale_path)
 
-            if qVersion() > '4.3.3':
+            if qVersion() > "4.3.3":
                 QCoreApplication.installTranslator(self.translator)
 
     def initGui(self):
         self.createMenu()
-        
+
     def show_kf_error(self):
-        title = self.tr( 'No contact to Kortforsyningen')
-        message = self.tr('Check internet connection and Kortforsyningen settings')
+        title = self.tr("No contact to Kortforsyningen")
+        message = self.tr("Check internet connection and Kortforsyningen settings")
         log_message(message)
         self.show_messagebar_linked_to_settings(title, message)
 
     def show_kf_settings_warning(self):
-        title = self.tr('Kortforsyningen')
-        message = self.tr('Token not set or wrong')
+        title = self.tr("Kortforsyningen")
+        message = self.tr("Token not set or wrong")
         log_message(message)
         self.show_messagebar_linked_to_settings(title, message)
 
-    def show_messagebar_linked_to_settings(self, title, message, level=Qgis.Warning, duration=15):
-        button_text = self.tr(u'Open settings')	                
+    def show_messagebar_linked_to_settings(
+        self, title, message, level=Qgis.Warning, duration=15
+    ):
+        button_text = self.tr(u"Open settings")
         widget = self.iface.messageBar().createMessage(title, message)
         button = QPushButton(widget)
         button.setText(button_text)
-        button.pressed.connect(lambda : self.iface.showOptionsDialog(currentPage='kortforsyningenOptions'))
+        button.pressed.connect(
+            lambda: self.iface.showOptionsDialog(currentPage="kortforsyningenOptions")
+        )
         widget.layout().addWidget(button)
         self.iface.messageBar().pushWidget(widget, level=level, duration=duration)
 
     def createMenu(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI.""" 
-        menu_bar = self.iface.mainWindow().menuBar()       
+        """Create the menu entries and toolbar icons inside the QGIS GUI."""
+        menu_bar = self.iface.mainWindow().menuBar()
         self.menu = QMenu(menu_bar)
-        self.menu.setObjectName(self.tr('Kortforsyningen'))
-        self.menu.setTitle(self.tr('Kortforsyningen'))
-        menu_bar.insertMenu(
-            self.iface.firstRightStandardMenu().menuAction(), self.menu
-        )
+        self.menu.setObjectName(self.tr("Kortforsyningen"))
+        self.menu.setTitle(self.tr("Kortforsyningen"))
+        menu_bar.insertMenu(self.iface.firstRightStandardMenu().menuAction(), self.menu)
         self.config.begin_load()
 
     def fillMenu(self):
@@ -140,30 +145,24 @@ class Kortforsyningen(object):
         self.category_menus = []
         kf_helper = lambda _id: lambda: self.open_kf_node(_id)
         local_helper = lambda _id: lambda: self.open_local_node(_id)
-        
+
         for category_list in self.category_lists:
             list_categorymenus = []
             for category in category_list:
                 category_menu = QMenu()
-                category_menu.setTitle(category['name'])
-                for selectable in category['selectables']:
-                    q_action = QAction(
-                        selectable['name'], self.iface.mainWindow()
-                    )
-                    if selectable['source'] == 'kf':
-                        q_action.triggered.connect(
-                            kf_helper(selectable['id'])
-                        )
+                category_menu.setTitle(category["name"])
+                for selectable in category["selectables"]:
+                    q_action = QAction(selectable["name"], self.iface.mainWindow())
+                    if selectable["source"] == "kf":
+                        q_action.triggered.connect(kf_helper(selectable["id"]))
                     else:
-                        q_action.triggered.connect(
-                            local_helper(selectable['id'])
-                        )
+                        q_action.triggered.connect(local_helper(selectable["id"]))
                     category_menu.addAction(q_action)
                     searchable_layers.append(
                         {
-                            'title': selectable['name'],
-                            'category': category['name'],
-                            'action': q_action
+                            "title": selectable["name"],
+                            "category": category["name"],
+                            "action": q_action,
                         }
                     )
                 list_categorymenus.append(category_menu)
@@ -173,18 +172,18 @@ class Kortforsyningen(object):
             self.menu.addSeparator()
         self.layer_locator_filter.set_searchable_layers(searchable_layers)
         # Add about
-        icon_path_info = os.path.join(os.path.dirname(__file__), 'images/icon_about.png')
+        icon_path_info = os.path.join(
+            os.path.dirname(__file__), "images/icon_about.png"
+        )
         self.about_menu = QAction(
             QIcon(icon_path_info),
-            self.tr('About the plugin') + '...',
-            self.iface.mainWindow()
+            self.tr("About the plugin") + "...",
+            self.iface.mainWindow(),
         )
-        self.about_menu.setObjectName(self.tr('About the plugin'))
+        self.about_menu.setObjectName(self.tr("About the plugin"))
         self.about_menu.triggered.connect(self.about_dialog)
         self.menu.addAction(self.about_menu)
 
-
-        
     def open_local_node(self, id):
         node = self.config.get_local_maplayer_node(id)
         self.open_node(node, id)
@@ -196,12 +195,12 @@ class Kortforsyningen(object):
     def open_node(self, node, id):
         QgsProject.instance().readLayer(node)
         layer = QgsProject.instance().mapLayer(id)
-        #if layer:
-            #self.iface.legendInterface().refreshLayerSymbology(layer)
+        # if layer:
+        # self.iface.legendInterface().refreshLayerSymbology(layer)
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
-        return QCoreApplication.translate('Kortforsyningen', message)
+        return QCoreApplication.translate("Kortforsyningen", message)
 
     # Taken directly from menu_from_project
     def getFirstChildByTagNameValue(self, elt, tagName, key, value):
@@ -219,11 +218,11 @@ class Kortforsyningen(object):
         return None
 
     def about_dialog(self):
-        lang = ''
+        lang = ""
         try:
-            locale = QSettings().value('locale/userLocale')
+            locale = QSettings().value("locale/userLocale")
             if locale != None:
-                lang = '#' + locale[:2]
+                lang = "#" + locale[:2]
         except:
             pass
         self.iface.openURL(ABOUT_FILE_URL + lang, False)
@@ -235,12 +234,12 @@ class Kortforsyningen(object):
         if self.layer_locator_filter:
             self.iface.deregisterLocatorFilter(self.layer_locator_filter)
             self.layer_locator_filter = None
-        self.clearMenu();
-        
+        self.clearMenu()
+
     def reloadMenu(self):
         self.clearMenu()
         self.createMenu()
-    
+
     def clearMenu(self):
         # Remove the submenus
         for submenu in self.category_menus:
