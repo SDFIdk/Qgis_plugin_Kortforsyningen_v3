@@ -26,7 +26,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QDialog
 
 FORM_CLASS, _ = uic.loadUiType(
-    os.path.join(os.path.dirname(__file__), 'aboutKortforsyningen.ui')
+    os.path.join(os.path.dirname(__file__), "aboutKortforsyningen.ui")
 )
 
 
