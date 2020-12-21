@@ -42,9 +42,9 @@ changelog=2020-12-21: version 2.9 Changed url to dataforsyningen and changed lin
 # Tags are comma separated with spaces allowed
 tags=Kortforsyningen, Agency for Data Supply and Efficiency, Danish Map Supply, Open Data, INSPIRE, Styrelsen for Dataforsyning og Effektivisering, SDFE, Danish, dansk, Danmark, Denmark, WMS, WFS
 
-homepage=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3
-tracker=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3/issues
-repository=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3
+homepage=https://github.com/Dataforsyningen/Qgis_plugin_Kortforsyningen_v3
+tracker=https://github.com/Dataforsyningen/Qgis_plugin_Kortforsyningen_v3/issues
+repository=https://github.com/Dataforsyningen/Qgis_plugin_Kortforsyningen_v3
 category=Kortforsyningen
 icon=images/icon.png
 # experimental flag
