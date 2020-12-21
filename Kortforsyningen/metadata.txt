@@ -41,9 +41,9 @@ changelog=2019-08-23: version 2.8 Replace urllib with QNetworkAccessManager - th
 # Tags are comma separated with spaces allowed
 tags=Kortforsyningen, Agency for Data Supply and Efficiency, Danish Map Supply, Open Data, INSPIRE, Styrelsen for Dataforsyning og Effektivisering, SDFE, Danish, dansk, Danmark, Denmark, WMS, WFS
 
-homepage=https://github.com/Kortforsyningen/Qgis_plugin_Kortforsyningen_v3
-tracker=https://github.com/Kortforsyningen/Qgis_plugin_Kortforsyningen_v3/issues
-repository=https://github.com/Kortforsyningen/Qgis_plugin_Kortforsyningen_v3
+homepage=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3
+tracker=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3/issues
+repository=https://github.com/dataforsyningen/Qgis_plugin_Kortforsyningen_v3
 category=Kortforsyningen
 icon=images/icon.png
 # experimental flag
